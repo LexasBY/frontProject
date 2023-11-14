@@ -36,14 +36,20 @@ function timer(id, deadline) {
 
         function updateClock() {
             const t = getTimeRemaining(endtime);
+           
+                days.innerHTML = getZero(t.days);
+                hours.innerHTML = getZero(t.hours);
+                minutes.innerHTML = getZero(t.minutes);
+                seconds.innerHTML = getZero(t.seconds);
 
-            days.innerHTML = getZero(t.days);
-            hours.innerHTML = getZero(t.hours);
-            minutes.innerHTML = getZero(t.minutes);
-            seconds.innerHTML = getZero(t.seconds);
+            
 
             if (t.total <= 0) {
                 clearInterval(timeInterval);
+                days.innerHTML = 'E';
+                hours.innerHTML = 'N';
+                minutes.innerHTML = 'D';
+                seconds.innerHTML = '!';
             }
         }
     }
